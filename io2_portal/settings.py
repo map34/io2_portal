@@ -25,7 +25,7 @@ SECRET_KEY = '0f7$d08jz3t1_4-9tx*4rr)-&)6zz$jfpol+fwy4=yze_x-sv='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['io2api-dev.zh2dmitwm7.us-west-2.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['io2portal-dev.de2gswmbmm.us-west-2.elasticbeanstalk.com', '127.0.0.1']
 
 
 # Application definition
