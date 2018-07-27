@@ -1,0 +1,11 @@
+name: service
+channels:
+  - conda-forge
+dependencies:
+  - python=3.6
+  - huey
+  - ipython
+  - xarray
+  - dask
+  - pip:
+    - git+https://github.com/cormorack/yodapy.git

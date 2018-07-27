@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  data_harvester:
+    restart: always
+    build:
+      context: ../../
+      dockerfile: ./scripts/docker_dev/Dockerfile
+    volumes:
+      - ../../:/usr/src/app:consistent
+      - /home/lsetiawan/TESTS/:/TESTS:consistent
+    links:
+      - redis
+    command: bash -c "source activate service && pushd scripts && huey_consumer.py main.huey --workers 100 --worker-type greenlet"
+  redis:
+    image: redis
+    ports: 
+      - 6379:6379
+    hostname: redis
+    expose:
+      - 6379
