@@ -16,3 +16,7 @@ variable "region" {
 variable "ssh_key_location" {
   default = "/home/lsetiawan/.ssh/id_rsa.pub"
 }
+
+variable "setup_script" {
+  default = "../../../../scripts/setup.sh"
+}
