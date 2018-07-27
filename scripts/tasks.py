@@ -32,9 +32,3 @@ def data_harvest(req):
         gevent.joinall(jobs, timeout=700)
 
         print([job.value for job in jobs])
-
-
-# @huey.periodic_task(crontab(minute='*'))
-# def print_time():
-#     logger = logging.getLogger('timer')
-#     logger.info(datetime.datetime.now().isoformat())
