@@ -34,4 +34,4 @@ def get_data(dr, ooi):
             for ds in data_list:
                 ncfile = export_nc(ds, begin)
                 ncfile_list.append(ncfile)
-            return ncfile_list 
+            return ncfile_list
