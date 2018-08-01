@@ -1,6 +1,6 @@
 from gevent import monkey; monkey.patch_all()
 from config import huey
-from tasks import data_harvest
+from tasks import data_harvest, make_dates
 
 import calendar
 
@@ -12,5 +12,12 @@ if __name__ == '__main__':
     year = int(input('Year: '))
     month = int(input('Month: '))
     req = (inst, year, month)
-    data_harvest(req)
+
+    dates = make_dates(req)
+    for date in dates:
+        fask = data_harvest.s(inst, date)
+        print(fask)
+        huey.enqueue(fask)
+
     print(f'Enqueued {req}')
+
