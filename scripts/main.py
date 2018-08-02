@@ -1,6 +1,7 @@
 from gevent import monkey; monkey.patch_all()
 from config import huey
 from tasks import data_harvest, make_dates
+import dill
 
 import calendar
 
@@ -13,9 +14,13 @@ if __name__ == '__main__':
     month = int(input('Month: '))
     req = (inst, year, month)
 
+    ooi = OOI()
+    ooi.search('cabled', 'slope base', 'shallow profiler', inst)
+    pickled_ooi = dill.dumps(ooi)
+
     dates = make_dates(req)
     for date in dates:
-        fask = data_harvest.s(inst, date)
+        fask = data_harvest.s(inst, date, pickled_ooi)
         print(fask)
         huey.enqueue(fask)
 

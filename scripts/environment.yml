@@ -7,5 +7,6 @@ dependencies:
   - ipython
   - xarray
   - dask
+  - dill
   - pip:
     - git+https://github.com/cormorack/yodapy.git
